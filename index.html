@@ -1,203 +1,344 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biodata - Angga Asril Akbar</title>
-  <style>
-    :root {
-      --biru: #2563eb;
-      --biru-muda: #eff6ff;
-      --biru-tua: #1e3a8a;
-      --abu: #64748b;
-      --garis: #e2e8f0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Profil Resmi — Afrizal</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #171a21;
+    --card-2: #1d212b;
+    --line: #262b36;
+    --text: #e7e9ee;
+    --muted: #9aa3b2;
+    --accent: #5b9dff;
+    --accent-2: #3ad29f;
+    --radius: 16px;
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--biru-muda);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      color: #0f172a;
-    }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(1200px 600px at 50% -10%, #1b2130 0%, var(--bg) 55%);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 16px;
+    line-height: 1.55;
+  }
 
-    .card {
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: 0 10px 40px rgba(37, 99, 235, 0.12);
-      max-width: 400px;
-      width: 100%;
-      overflow: hidden;
-      border: 1px solid var(--garis);
-      animation: fadeUp 0.7s ease;
-    }
+  .wrap { width: 100%; max-width: 760px; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+  .brandbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    justify-content: center;
+  }
+  .brandbar .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 12px var(--accent-2);
+  }
 
-    .header {
-      text-align: center;
-      padding: 44px 24px 30px;
-      background: linear-gradient(135deg, var(--biru) 0%, var(--biru-tua) 100%);
-    }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  }
 
-    .avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      margin: 0 auto 18px;
-      object-fit: cover;
-      border: 4px solid #fff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      background: var(--biru-muda);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 54px;
-      color: var(--biru);
-    }
+  .header {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, var(--card-2), var(--card));
+  }
 
-    .header h1 {
-      font-size: 23px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
+  .avatar {
+    width: 110px; height: 110px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+    background: #0b0d12;
+  }
 
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 5px 16px;
-      border-radius: 20px;
-      letter-spacing: 0.3px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-    }
+  .avatar-fallback {
+    width: 110px; height: 110px;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 42px; font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #0b0d12;
+    flex-shrink: 0;
+  }
 
-    .info {
-      padding: 8px 28px 32px;
-    }
+  .identity h1 { font-size: 26px; letter-spacing: -0.01em; }
+  .identity .role { color: var(--accent); font-size: 14px; margin-top: 4px; font-weight: 600; }
+  .identity .verified {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 10px;
+    font-size: 12px; color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .identity .verified svg { width: 14px; height: 14px; }
 
-    .info-item {
-      display: flex;
-      align-items: center;
-      padding: 14px 14px;
-      border-radius: 14px;
-      margin-bottom: 6px;
-      transition: background 0.2s ease;
-    }
+  .section { padding: 24px 28px; border-bottom: 1px solid var(--line); }
+  .section:last-child { border-bottom: none; }
+  .section h2 {
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px; font-weight: 600;
+  }
 
-    .info-item:hover {
-      background: var(--biru-muda);
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 24px;
+  }
+  .field .label { font-size: 12px; color: var(--muted); }
+  .field .value { font-size: 15px; font-weight: 600; margin-top: 2px; }
 
-    .icon {
-      font-size: 18px;
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--biru);
-      border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3);
-    }
+  .bio { color: var(--text); font-size: 15px; }
+  .bio .quote {
+    border-left: 3px solid var(--accent);
+    padding-left: 14px; color: var(--muted); font-style: italic;
+    margin-top: 12px;
+  }
 
-    .label-value {
-      margin-left: 14px;
-    }
+  .stats { display: grid; gap: 16px; }
+  .stat .top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 14px; margin-bottom: 6px;
+  }
+  .stat .top b { color: var(--accent-2); }
+  .bar {
+    height: 10px; border-radius: 999px; background: #0b0d12;
+    border: 1px solid var(--line); overflow: hidden;
+  }
+  .bar > span {
+    display: block; height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 1.1s cubic-bezier(.2,.7,.2,1);
+  }
 
-    .label {
-      font-size: 11px;
-      color: var(--abu);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 2px;
-    }
+  .analyzer { text-align: center; }
+  .btn {
+    appearance: none; border: none; cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #0b0d12; font-weight: 700; font-size: 15px;
+    padding: 14px 24px; border-radius: 12px;
+    transition: transform .12s ease, box-shadow .2s ease;
+    box-shadow: 0 10px 24px rgba(91,157,255,0.25);
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(91,157,255,0.35); }
+  .btn:active { transform: translateY(0); }
+  .btn:disabled { opacity: .6; cursor: progress; }
 
-    .value {
-      font-size: 16px;
-      color: #0f172a;
-      font-weight: 600;
-    }
+  .loading { margin-top: 18px; display: none; }
+  .loading.show { display: block; }
+  .loading .status { font-size: 13px; color: var(--muted); min-height: 18px; }
+  .loading .progress {
+    height: 6px; margin-top: 10px; border-radius: 999px;
+    background: #0b0d12; border: 1px solid var(--line); overflow: hidden;
+  }
+  .loading .progress > span {
+    display: block; height: 100%; width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width .3s linear;
+  }
 
-    .footer {
-      text-align: center;
-      padding: 18px;
-      background: var(--biru-muda);
-      color: var(--abu);
-      font-size: 12px;
-      letter-spacing: 0.3px;
-    }
-  </style>
+  .result {
+    margin-top: 20px; text-align: left;
+    display: none; opacity: 0; transform: translateY(8px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .result.show { display: block; opacity: 1; transform: translateY(0); }
+  .result .badge {
+    display: inline-block; font-size: 12px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent-2);
+    border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .result .verdict { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .result ul { list-style: none; display: grid; gap: 10px; }
+  .result li {
+    background: var(--card-2); border: 1px solid var(--line);
+    padding: 12px 14px; border-radius: 10px; font-size: 14px;
+  }
+  .result li b { color: var(--accent); }
+
+  .footer {
+    text-align: center; color: var(--muted); font-size: 12px;
+    margin-top: 18px; line-height: 1.6;
+  }
+  .footer .mini { font-size: 11px; opacity: .7; }
+
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; text-align: center; }
+    .identity .verified { margin-left: auto; margin-right: auto; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <img class="avatar" src="foto.jpg" alt="Foto Angga Asril Akbar" />
-      <h1>Angga Asril Akbar</h1>
-      <span class="badge">Pelukis Profesional</span>
-    </div>
+  <div class="wrap">
+    <div class="brandbar"><span class="dot"></span> Neural Profile Engine v4.2</div>
 
-    <div class="info">
-      <div class="info-item">
-        <div class="icon">🎂</div>
-        <div class="label-value">
-          <div class="label">Umur</div>
-          <div class="value">78 Tahun</div>
+    <div class="card">
+      <!-- HEADER -->
+      <div class="header">
+        <img class="avatar" alt="Foto Afrizal"
+             src="https://drive.google.com/thumbnail?id=1C64sAmwUoRmcwQs1XvPqtirzNxFkIIlg&sz=w400"
+             onerror="this.outerHTML='&lt;div class=\'avatar-fallback\'&gt;A&lt;/div&gt;'" />
+        <div class="identity">
+          <h1>Afrizal</h1>
+          <div class="role">Konsultan Senior Divisi Rebahan</div>
+          <div class="verified">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Profil terverifikasi otomatis
+          </div>
         </div>
       </div>
 
-      <div class="info-item">
-        <div class="icon">🖌️</div>
-        <div class="label-value">
-          <div class="label">Profesi</div>
-          <div class="value">Pelukis</div>
+      <!-- BIODATA -->
+      <div class="section">
+        <h2>Biodata</h2>
+        <div class="grid">
+          <div class="field"><div class="label">Nama Lengkap</div><div class="value">Afrizal</div></div>
+          <div class="field"><div class="label">Umur</div><div class="value">27 tahun (muka 42)</div></div>
+          <div class="field"><div class="label">Profesi</div><div class="value">Pengelap jok sepeda pro</div></div>
+          <div class="field"><div class="label">Hobi Utama</div><div class="value">Nge-mie jam 2 pagi</div></div>
+          <div class="field"><div class="label">Keahlian</div><div class="value">Tidur dalam 0,3 detik</div></div>
+          <div class="field"><div class="label">Status</div><div class="value">Sibuk (rebahan)</div></div>
         </div>
       </div>
 
-      <div class="info-item">
-        <div class="icon">💰</div>
-        <div class="label-value">
-          <div class="label">Penghasilan Bulanan</div>
-          <div class="value">$1.000.000</div>
+      <!-- BIO NARASI -->
+      <div class="section">
+        <h2>Tentang Saya</h2>
+        <div class="bio">
+          Halo, saya Afrizal. Seorang pencinta ketenangan, kasur, dan Wi-Fi gratis.
+          Prinsip hidup saya sederhana: kalau bisa duduk, kenapa harus berdiri; kalau bisa rebahan, kenapa harus duduk.
+          <div class="quote">"Kaos band saya banyak, lagunya satu pun belum pernah saya dengerin."</div>
         </div>
       </div>
 
-      <div class="info-item">
-        <div class="icon">💍</div>
-        <div class="label-value">
-          <div class="label">Status</div>
-          <div class="value">Single</div>
+      <!-- STATS -->
+      <div class="section">
+        <h2>Statistik Kepribadian</h2>
+        <div class="stats">
+          <div class="stat"><div class="top"><span>Level Mager</span><b>97%</b></div><div class="bar"><span data-w="97"></span></div></div>
+          <div class="stat"><div class="top"><span>Kecepatan Rebahan</span><b>91%</b></div><div class="bar"><span data-w="91"></span></div></div>
+          <div class="stat"><div class="top"><span>Niat Diet</span><b>12%</b></div><div class="bar"><span data-w="12"></span></div></div>
+          <div class="stat"><div class="top"><span>Kemampuan PHP (Pemberi Harapan Palsu)</span><b>88%</b></div><div class="bar"><span data-w="88"></span></div></div>
         </div>
       </div>
 
-      <div class="info-item">
-        <div class="icon">📍</div>
-        <div class="label-value">
-          <div class="label">Domisili</div>
-          <div class="value">Jamaika</div>
+      <!-- ANALYZER -->
+      <div class="section analyzer">
+        <h2>Analisis Kepribadian AI</h2>
+        <button class="btn" id="runBtn">🧠 Jalankan Analisis Kepribadian AI</button>
+
+        <div class="loading" id="loading">
+          <div class="status" id="status">Menginisialisasi mesin saraf…</div>
+          <div class="progress"><span id="progressBar"></span></div>
+        </div>
+
+        <div class="result" id="result">
+          <span class="badge">Hasil Analisis — Akurasi 99,9%</span>
+          <div class="verdict" id="verdict"></div>
+          <ul id="findings"></ul>
         </div>
       </div>
     </div>
 
     <div class="footer">
-      Kartu Biodata &middot; 2026
+      Dibuat untuk hiburan 😄 — semua data di sini fiktif dan dibikin buat ketawa bareng.
+      <div class="mini">Neural Profile Engine™ · bukan AI beneran, cuma JavaScript yang pura-pura pinter.</div>
     </div>
   </div>
+
+<script>
+  // Animasi bar statistik saat load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.bar > span').forEach(el => {
+      setTimeout(() => { el.style.width = el.dataset.w + '%'; }, 300);
+    });
+  });
+
+  const btn = document.getElementById('runBtn');
+  const loading = document.getElementById('loading');
+  const statusEl = document.getElementById('status');
+  const progressBar = document.getElementById('progressBar');
+  const result = document.getElementById('result');
+  const verdict = document.getElementById('verdict');
+  const findings = document.getElementById('findings');
+
+  const steps = [
+    "Menginisialisasi mesin saraf…",
+    "Memindai 10.482 data perilaku…",
+    "Menganalisis pola tidur subjek…",
+    "Menghitung indeks kemageran…",
+    "Membandingkan dengan 2 juta profil global…",
+    "Memvalidasi hasil (hampir yakin)…",
+    "Menyusun kesimpulan akhir…"
+  ];
+
+  const VERDICT = "Tipe Kepribadian: INTP — Introvert, Nggak-niat, Tukang-tidur, Profesional-rebahan";
+
+  const FINDINGS = [
+    "<b>Deteksi:</b> Subjek mampu membuka kulkas 7 kali tanpa mengambil apa pun.",
+    "<b>Analisis:</b> 94% energi harian dialokasikan untuk mencari alasan tidak keluar rumah.",
+    "<b>Temuan:</b> Punya 23 tab browser terbuka, tak satu pun yang penting.",
+    "<b>Prediksi:</b> Akan bilang 'bentar lagi bangun' selama 3 jam ke depan.",
+    "<b>Rekomendasi AI:</b> Subjek layak dipromosikan jadi Direktur Utama Divisi Rebahan."
+  ];
+
+  btn.addEventListener('click', () => {
+    btn.disabled = true;
+    result.classList.remove('show');
+    loading.classList.add('show');
+    let i = 0;
+    const total = steps.length;
+
+    const tick = () => {
+      statusEl.textContent = steps[i];
+      progressBar.style.width = Math.round(((i + 1) / total) * 100) + '%';
+      i++;
+      if (i < total) {
+        setTimeout(tick, 650 + Math.random() * 500);
+      } else {
+        setTimeout(showResult, 800);
+      }
+    };
+    tick();
+  });
+
+  function showResult() {
+    loading.classList.remove('show');
+    verdict.textContent = VERDICT;
+    findings.innerHTML = FINDINGS.map(f => `<li>${f}</li>`).join('');
+    result.classList.add('show');
+    btn.disabled = false;
+    btn.textContent = "🔁 Analisis Ulang";
+  }
+</script>
 </body>
 </html>
